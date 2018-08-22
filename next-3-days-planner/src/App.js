@@ -22,6 +22,14 @@ class App extends React.Component {
       this.setState({
         'Today':[...this.state.Today, term],
       })
+    }else if(day === 'Tomorrow'){
+      this.setState({
+        'Tomorrow':[...this.state.Tomorrow, term],
+      })
+    }else if (day === 'Day_After_Tomorrow'){
+      this.setState({
+        'Day_After_Tomorrow':[...this.state.Day_After_Tomorrow, term],
+      })
     }
   }
 }
