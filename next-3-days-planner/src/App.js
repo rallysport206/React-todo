@@ -67,4 +67,20 @@ class App extends React.Component {
       console.log ('something went wrong while removing item...');
     }
   }
+  render(){
+    return(
+      <div>
+        <Header nam={this.state.username} />
+        <Textbox updateEntry={this.updateEntry} />
+        <hr />>
+        <div className="grid">
+          <DisplayToday items={this.state.Today} deleteItem={this.deleteEntry} />
+          <DisplayTomorrow items={this.state.Tomorrow} deleteItem={this.deleteEntry} />
+          <DisplayDayAfterTomorrow items={this.state.Day_After_Tomorrow} deleteItem={this.deleteEntry} />
+        </div>
+      </div>
+    );
+  }
 }
+
+export default App;
