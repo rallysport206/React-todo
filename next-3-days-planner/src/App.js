@@ -1,16 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import 'hack'
+import './style.css'
 
 import { Header } from './Components/Header';
 import { Textbox } from './Components/Textbox';
 import { DisplayToday, DisplayTomorrow, DisplayDayAfterTomorrow } from './Components/Display';
+import SimpleStorage from 'react-simple-storage'
 
 class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       'Today': [],
-      'Tomorrow'; [],
+      'Tomorrow': [],
       'Day_After_Tomorrow': [],
       'username': 'yo buddy!'
     }
@@ -33,7 +36,7 @@ class App extends React.Component {
     }
   }
   deleteEntry(index, day){
-    if (day ==== 'Today'){
+    if (day === 'Today'){
       let filterList = this.state.Today.filter((elem, i) => {
         if(i === index){
           return false;
@@ -70,6 +73,7 @@ class App extends React.Component {
   render(){
     return(
       <div>
+        <SimpleStorage parent={this} />
         <Header nam={this.state.username} />
         <Textbox updateEntry={this.updateEntry} />
         <hr />>
