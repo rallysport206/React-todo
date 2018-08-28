@@ -7,24 +7,25 @@ export class Textbox extends React.Component{
             'term': '',
             'day': 'Today'
         }
-        this.handleChange = this.handleChange.bind(this)
-        this.handleChange = this.handleSelect.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
+        // this.handleChange = this.handleChange.bind(this)
+        // this.handleChange = this.handleSelect.bind(this)
+        // this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    handleChange(e){
+    handleChange = (e) => {
         this.setState({
             'term': e.target.value
-        })
+        });
+        console.log("gfgfgfg");
     }
 
-    handleSelect(event){
+    handleSelect = (event) => {
         this.setState({
             'day': event.target.value
         })
     }
 
-    handleSubmit(e){
+    handleSubmit = (e) => {
         e.preventDefault();
             this.props.updateEntry(this.state.term, this.state.day)
             this.setState({
@@ -46,8 +47,8 @@ export class Textbox extends React.Component{
                             </select>
                         </fieldset>
                         <fieldset className="form-group form-warning">
-                            <label>YOUR GOAL: </label>
-                            <input type="text" id="aim" value={this.state.term} placeholder='type your goal here and press enter' onChange={this.handleChange} classeName="form-control" />
+                            <label>YOUR GOAL : </label>
+                            <input type="text" id="aim" placeholder='type your goal here and press enter' onChange={this.handleChange} className="form-control" />
                         </fieldset>
                         <button className="btn btn-warning btn-ghost"> I WILL DO THIS!</button>
                     </form>
